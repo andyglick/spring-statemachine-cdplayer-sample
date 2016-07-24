@@ -14,7 +14,7 @@ explored the issues around configuring slf4j output into 3 modes,
 settable via Maven profiles. With both of the profiles turned off, there
 is no logging. As you might expect, the log-info profile produces INFO
 level logging, and the log-debug-profile produces DEBUG level logging.
-There is no lgger configuration file. Changing the classpath via the
+There is no logger configuration file. Changing the classpath via the
 profiles is all that you need to get the differing behaviors. 
 
 The log-info profile is enabled by default, as the execution of the
