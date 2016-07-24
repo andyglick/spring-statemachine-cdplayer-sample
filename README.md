@@ -21,7 +21,7 @@ The log-info profile is enabled by default, as the execution of the
 statemachine produces a whole lot of messages, that a curious person
 might want to take a look at.
 
-Disable info. logging by adding "-P !log-info" to the maven command line.
+Disable info logging by adding "-P !log-info" to the maven command line.
 
 My gradle skills are nearly non-existent. I know Maven pretty well. So I
 constructed a Maven build.
