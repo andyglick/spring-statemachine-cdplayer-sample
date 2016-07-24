@@ -18,7 +18,7 @@ There is no logger configuration file. Changing the classpath via the
 profiles is all that you need to get the differing behaviors. 
 
 The log-info profile is enabled by default, as the execution of the
-statemachine produces a whole lot of messages, that a curious person
+statemachine produces a whole lot of messages that a curious person
 might want to take a look at.
 
 Disable info logging by adding "-P !log-info" to the maven command line.
