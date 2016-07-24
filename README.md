@@ -2,8 +2,8 @@ Spring Statemachine Sample - cdplayer
 =====================================
  
 Was taken by surprise when learning that the Spring Statemachine project
-exists. Had difficulties attempting to instantiate a statemachine when
-using @Inject following the 1st examples in the docs. Got the
+even existed. Had difficulties attempting to instantiate a statemachine
+when using @Inject following the 1st examples in the docs. Got the
 distribution and Mavenized an example -- voila voila.
 
 I thought that the cdplayer state machine looked interesting. Have a
