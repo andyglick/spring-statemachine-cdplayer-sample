@@ -8,7 +8,7 @@ when using @Inject following the 1st examples in the docs. Got the
 distribution and Mavenized an example -- voila voila.
 
 I thought that the cdplayer state machine looked interesting. Have a
-look at the StateChart at src/main/resources.  
+look at the StateChart at *src/main/resources/statechartmodel.txt*.  
 
 Another potentially interesting aspect of this is that I have now
 explored the issues around configuring slf4j output into 3 modes,
