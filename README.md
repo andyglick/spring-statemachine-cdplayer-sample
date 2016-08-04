@@ -1,3 +1,4 @@
+[![Dependency Status](https://www.versioneye.com/user/projects/57961d8c4fe918003eb31635/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57961d8c4fe918003eb31635)
 Spring Statemachine Sample - cdplayer
 =====================================
  
