@@ -28,7 +28,7 @@
     <surefire.useFile>false</surefire.useFile>
     <surefire.version>2.19.1</surefire.version>
     <versioneye.project.id>57961d8c4fe918003eb31635</versioneye.project.id>
-    <versioneye.plugin.version>3.10.2</versioneye.plugin.version>
+    <versioneye.plugin.version>3.11.0</versioneye.plugin.version>
   </properties>
 
   <build>
