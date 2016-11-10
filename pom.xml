@@ -40,7 +40,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.5.1</version>
+          <version>3.6.0</version>
         </plugin>
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
@@ -160,6 +160,51 @@
   </build>
 
   <profiles>
+    <profile>
+      <id>tattletale</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jboss.tattletale</groupId>
+            <artifactId>tattletale-maven</artifactId>
+            <version>1.2.0.Beta2</version>
+<!--            <dependencies>
+              <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.21.0-GA</version>
+              </dependency>
+              <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-plugin-api</artifactId>
+                <version>3.3.9</version>
+              </dependency>
+              <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-utils</artifactId>
+                <version>3.0.24</version>
+              </dependency>
+            </dependencies>-->
+            <configuration>
+              <source>target/cdplayer-1.0.jar</source>
+              <destination>target/tattletale-report</destination>
+              <reports>
+                <report>*</report>
+              </reports>
+            </configuration>
+            <executions>
+              <execution>
+                <id>tattletale-report</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <id>log-info</id>
       <activation>
