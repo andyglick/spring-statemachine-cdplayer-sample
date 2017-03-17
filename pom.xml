@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.zrgs.spring.statemachine</groupId>
@@ -14,7 +15,7 @@
       <uniqueVersion>false</uniqueVersion>
       <id>zrgs.org.maven.repo</id>
       <name>zrgs.org maven repo</name>
-      <url>https://github.com/andyglick/maven-repo/repository/releases</url>
+      <url>https://github.com/andyglick/maven-repo/repository/releases/</url>
       <layout>default</layout>
     </repository>
   </distributionManagement>
@@ -32,7 +33,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <slf4j.version>1.7.24</slf4j.version>
+    <slf4j.version>1.7.25</slf4j.version>
     <spring.shell.version>1.2.0.RELEASE</spring.shell.version>
     <spring.statemachine.version>1.2.3.RELEASE</spring.statemachine.version>
     <spring.version>4.3.7.RELEASE</spring.version>
@@ -91,7 +92,7 @@
           </executions>
           <configuration>
             <rules>
-              <DependencyConvergence />
+              <DependencyConvergence/>
               <bannedDependencies>
                 <excludes>
                   <!-- use slf4j not jcl or log4j-->
@@ -184,23 +185,25 @@
             <groupId>org.jboss.tattletale</groupId>
             <artifactId>tattletale-maven</artifactId>
             <version>1.2.0.Beta2</version>
-            <!--            <dependencies>
-                          <dependency>
-                            <groupId>org.javassist</groupId>
-                            <artifactId>javassist</artifactId>
-                            <version>3.21.0-GA</version>
-                          </dependency>
-                          <dependency>
-                            <groupId>org.apache.maven</groupId>
-                            <artifactId>maven-plugin-api</artifactId>
-                            <version>3.3.9</version>
-                          </dependency>
-                          <dependency>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-utils</artifactId>
-                            <version>3.0.24</version>
-                          </dependency>
-                        </dependencies>-->
+            <!--
+            <dependencies>
+              <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.21.0-GA</version>
+              </dependency>
+              <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-plugin-api</artifactId>
+                <version>3.3.9</version>
+              </dependency>
+              <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-utils</artifactId>
+                <version>3.0.24</version>
+              </dependency>
+            </dependencies>
+            -->
             <configuration>
               <source>target/cdplayer-1.0.jar</source>
               <destination>target/tattletale-report</destination>
