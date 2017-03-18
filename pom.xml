@@ -12,11 +12,9 @@
 
   <distributionManagement>
     <repository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>zrgs.org.maven.repo</id>
-      <name>zrgs.org maven repo</name>
-      <url>https://github.com/andyglick/maven-repo/repository/releases/</url>
-      <layout>default</layout>
+      <id>internal.repo</id>
+      <name>Temporary Staging Repository</name>
+      <url>file://${project.build.directory}/mvn-repo</url>
     </repository>
   </distributionManagement>
 
@@ -149,6 +147,13 @@
     </pluginManagement>
     <plugins>
       <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.1</version>
+        <configuration>
+          <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+        </configuration>
+      </plugin>
+      <plugin>
         <artifactId>maven-release-plugin</artifactId>
         <version>2.5.3</version>
       </plugin>
@@ -205,7 +210,7 @@
             </dependencies>
             -->
             <configuration>
-              <source>target/cdplayer-1.0.jar</source>
+              <source>target/cdplayer-${project.version}.jar</source>
               <destination>target/tattletale-report</destination>
               <reports>
                 <report>*</report>
