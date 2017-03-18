@@ -29,6 +29,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -189,6 +190,7 @@ public class CdPlayerTest {
 	}
 
 	@Test
+  @Ignore
 	public void testPlayStop() throws Exception {
 		listener.reset(4, 0, 0);
 		player.eject();
