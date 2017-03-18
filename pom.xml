@@ -1,4 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+  http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.zrgs.spring.statemachine</groupId>
@@ -27,8 +31,11 @@
   </prerequisites>
 
   <properties>
+    <errorprone.compiler.version>2.0.18</errorprone.compiler.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <plexus.compiler.version>2.8.1</plexus.compiler.version>
+    <plexus.utils.version>3.0.24</plexus.utils.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <slf4j.version>1.7.25</slf4j.version>
     <spring.shell.version>1.2.0.RELEASE</spring.shell.version>
@@ -51,6 +58,37 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.6.1</version>
+          <configuration>
+            <compilerId>javac-with-errorprone</compilerId>
+            <forceJavacCompilerUse>true</forceJavacCompilerUse>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>com.google.errorprone</groupId>
+              <artifactId>error_prone_core</artifactId>
+              <version>${errorprone.compiler.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-compiler-javac-errorprone</artifactId>
+              <version>${plexus.compiler.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-compiler-api</artifactId>
+              <version>${plexus.compiler.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-compiler-manager</artifactId>
+              <version>${plexus.compiler.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-utils</artifactId>
+              <version>${plexus.utils.version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
@@ -89,7 +127,7 @@
           </executions>
           <configuration>
             <rules>
-              <DependencyConvergence />
+              <DependencyConvergence/>
               <bannedDependencies>
                 <excludes>
                   <!-- use slf4j not jcl or log4j-->
