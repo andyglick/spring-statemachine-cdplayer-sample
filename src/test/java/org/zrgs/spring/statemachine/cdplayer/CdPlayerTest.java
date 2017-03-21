@@ -15,22 +15,10 @@
  */
 package org.zrgs.spring.statemachine.cdplayer;
 
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.assertThat;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -41,10 +29,21 @@ import org.springframework.statemachine.listener.StateMachineListener;
 import org.springframework.statemachine.listener.StateMachineListenerAdapter;
 import org.springframework.statemachine.state.State;
 import org.springframework.statemachine.transition.Transition;
-
 import org.zrgs.spring.statemachine.CommonConfiguration;
 import org.zrgs.spring.statemachine.cdplayer.Application.Events;
 import org.zrgs.spring.statemachine.cdplayer.Application.States;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.startsWith;
+import static org.junit.Assert.assertThat;
 
 @SuppressWarnings("WeakerAccess")
 public class CdPlayerTest {
@@ -82,7 +81,7 @@ public class CdPlayerTest {
 	}
 
 	@Test
-  @Ignore
+  // @Ignore
 	public void testPlayWithCdLoaded() throws Exception {
 		listener.reset(4, 0, 0);
 		player.eject();
@@ -191,7 +190,7 @@ public class CdPlayerTest {
 	}
 
 	@Test
-  @Ignore
+  // @Ignore
 	public void testPlayStop() throws Exception {
 		listener.reset(4, 0, 0);
 		player.eject();

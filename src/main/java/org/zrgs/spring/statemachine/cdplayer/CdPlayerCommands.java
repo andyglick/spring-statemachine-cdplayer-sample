@@ -15,18 +15,24 @@
  */
 package org.zrgs.spring.statemachine.cdplayer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.shell.core.CommandMarker;
 import org.springframework.shell.core.annotation.CliCommand;
 import org.springframework.shell.core.annotation.CliOption;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
+
+import java.lang.invoke.MethodHandles;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @SuppressWarnings({"unused", "SpringAutowiredFieldsWarningInspection"})
 @Component
 public class CdPlayerCommands implements CommandMarker {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@Inject
 	private CdPlayer cdPlayer;
@@ -107,5 +113,4 @@ public class CdPlayerCommands implements CommandMarker {
 	public void back() {
 		cdPlayer.back();
 	}
-
 }

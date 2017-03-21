@@ -15,20 +15,21 @@
  */
 package org.zrgs.spring.statemachine.cdplayer;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.statemachine.ExtendedState;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.annotation.OnTransition;
 import org.springframework.statemachine.annotation.WithStateMachine;
 
-import javax.inject.Inject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@SuppressWarnings("WeakerAccess")
 @WithStateMachine
 public class CdPlayer {
 
-	@Inject
+  @Autowired
 	private StateMachine<Application.States, Application.Events> stateMachine;
 
 	private String cdStatus = "No CD";
@@ -73,7 +74,8 @@ public class CdPlayer {
 	}
 
 //tag::snippetA[]
-	@OnTransition(target = "BUSY")
+	@SuppressWarnings("unused")
+  @OnTransition(target = "BUSY")
 	public void busy(ExtendedState extendedState) {
 		Object cd = extendedState.getVariables().get(Application.Variables.CD);
 		if (cd != null) {
@@ -82,25 +84,28 @@ public class CdPlayer {
 	}
 //end::snippetA[]
 
-	@Application.StatesOnTransition(target = Application.States.PLAYING)
+	@SuppressWarnings("unused")
+  @Application.StatesOnTransition(target = Application.States.PLAYING)
 	public void playing(ExtendedState extendedState) {
 		Object elapsed = extendedState.getVariables().get(Application.Variables.ELAPSEDTIME);
 		Object cd = extendedState.getVariables().get(Application.Variables.CD);
 		Object track = extendedState.getVariables().get(Application.Variables.TRACK);
 		if (elapsed instanceof Long && track instanceof Integer && cd instanceof Cd) {
 			SimpleDateFormat format = new SimpleDateFormat("mm:ss");
-			trackStatus = ((Cd) cd).getTracks()[((Integer) track)]
-					+ " " + format.format(new Date((Long) elapsed));
+			trackStatus = String.format("%s %s", ((Cd) cd).getTracks()[(Integer) track],
+        format.format(new Date((Long) elapsed)));
 		}
 	}
 
-	@Application.StatesOnTransition(target = Application.States.OPEN)
+	@SuppressWarnings("unused")
+  @Application.StatesOnTransition(target = Application.States.OPEN)
 	public void open(ExtendedState extendedState) {
 		cdStatus = "Open";
 	}
 
 //tag::snippetB[]
-	@Application.StatesOnTransition(target = {Application.States.CLOSED, Application.States.IDLE})
+	@SuppressWarnings("unused")
+  @Application.StatesOnTransition(target = {Application.States.CLOSED, Application.States.IDLE})
 	public void closed(ExtendedState extendedState) {
 		Object cd = extendedState.getVariables().get(Application.Variables.CD);
 		if (cd != null) {

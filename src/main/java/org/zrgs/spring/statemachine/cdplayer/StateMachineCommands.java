@@ -26,10 +26,10 @@ import org.zrgs.spring.statemachine.cdplayer.Application.States;
 @Component
 public class StateMachineCommands extends AbstractStateMachineCommands<States, Events> {
 
-	@CliCommand(value = "sm event", help = "Sends an event to a state machine")
+	@SuppressWarnings("unused")
+  @CliCommand(value = "sm event", help = "Sends an event to a state machine")
 	public String event(@CliOption(key = { "", "event" }, mandatory = true, help = "The event") final Events event) {
 		getStateMachine().sendEvent(event);
 		return "Event " + event + " send";
 	}
-
 }
