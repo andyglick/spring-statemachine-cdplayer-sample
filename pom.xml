@@ -1,10 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0   http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.zrgs.spring.statemachine</groupId>
   <artifactId>cdplayer</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>cdplayer</name>
@@ -20,7 +20,7 @@
 
   <scm>
     <developerConnection>scm:git:https://github.com/andyglick/spring-statemachine-cdplayer-sample.git</developerConnection>
-    <tag>cdplayer-1.0.3</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <prerequisites>
