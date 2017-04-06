@@ -32,6 +32,7 @@ import java.util.Date;
 @Component
 public class CdPlayerCommands implements CommandMarker {
 
+  @SuppressWarnings("unused")
   private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@Inject

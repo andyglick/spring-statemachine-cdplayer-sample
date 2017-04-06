@@ -205,7 +205,7 @@ public class Application  {
 //tag::snippetG[]
 	public static class ClosedEntryAction implements Action<States, Events> {
 
-		// @Override
+		@Override
 		public void execute(StateContext<States, Events> context) {
 			if (context.getTransition() != null
 					&& context.getEvent() == Events.PLAY
@@ -220,7 +220,7 @@ public class Application  {
 //tag::snippetH[]
 	public static class LoadAction implements Action<States, Events> {
 
-		// @Override
+		@Override
 		public void execute(StateContext<States, Events> context) {
 			Object cd = context.getMessageHeader(Variables.CD);
 			context.getExtendedState().getVariables().put(Variables.CD, cd);
@@ -231,7 +231,7 @@ public class Application  {
 //tag::snippetI[]
 	public static class PlayAction implements Action<States, Events> {
 
-		// @Override
+		@Override
 		public void execute(StateContext<States, Events> context) {
 			context.getExtendedState().getVariables().put(Variables.ELAPSEDTIME, 0L);
 			context.getExtendedState().getVariables().put(Variables.TRACK, 0);
@@ -242,7 +242,7 @@ public class Application  {
 //tag::snippetJ[]
 	public static class PlayGuard implements Guard<States, Events> {
 
-		// @Override
+		@Override
 		public boolean evaluate(StateContext<States, Events> context) {
 			ExtendedState extendedState = context.getExtendedState();
 			return extendedState.getVariables().get(Variables.CD) != null;
@@ -253,7 +253,7 @@ public class Application  {
 //tag::snippetK[]
 	public static class PlayingAction implements Action<States, Events> {
 
-		// @Override
+		@Override
 		public void execute(StateContext<States, Events> context) {
 			Map<Object, Object> variables = context.getExtendedState().getVariables();
 			Object elapsed = variables.get(Variables.ELAPSEDTIME);
@@ -261,7 +261,7 @@ public class Application  {
 			Object track = variables.get(Variables.TRACK);
 			if (elapsed instanceof Long) {
 				long e = ((Long)elapsed) + 1000L;
-				if (e > ((Cd) cd).getTracks()[((Integer) track)].getLength()*1000) {
+				if (e > ((Cd) cd).getTracks()[(Integer) track].getLength()*1000) {
 					context.getStateMachine().sendEvent(MessageBuilder
 							.withPayload(Events.FORWARD)
 							.setHeader(Headers.TRACKSHIFT.toString(), 1).build());
@@ -276,7 +276,7 @@ public class Application  {
 //tag::snippetL[]
 	public static class TrackAction implements Action<States, Events> {
 
-		// @Override
+		@Override
 		public void execute(StateContext<States, Events> context) {
 			Map<Object, Object> variables = context.getExtendedState().getVariables();
 			Object trackshift = context.getMessageHeader(Headers.TRACKSHIFT.toString());

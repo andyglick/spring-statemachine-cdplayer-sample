@@ -5,7 +5,7 @@
   <groupId>org.zrgs.spring.statemachine</groupId>
   <artifactId>cdplayer</artifactId>
   <version>1.0.4-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>app-client</packaging>
 
   <name>cdplayer</name>
   <url>http://maven.apache.org</url>
@@ -28,6 +28,7 @@
   </prerequisites>
 
   <properties>
+    <app.mainClass>org.zrgs.spring.statemachine.cdplayer.Application</app.mainClass>
     <errorprone.compiler.version>2.0.19</errorprone.compiler.version>
     <logback.version>1.2.2</logback.version>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -43,7 +44,7 @@
     <surefire.useFile>false</surefire.useFile>
     <surefire.version>2.19.1</surefire.version>
     <versioneye.project.id>57961d8c4fe918003eb31635</versioneye.project.id>
-    <versioneye.plugin.version>3.11.1</versioneye.plugin.version>
+    <versioneye.plugin.version>3.11.2</versioneye.plugin.version>
   </properties>
 
   <build>
@@ -162,14 +163,6 @@
           <version>${surefire.version}</version>
         </plugin>
         <plugin>
-          <groupId>com.versioneye</groupId>
-          <artifactId>versioneye-maven-plugin</artifactId>
-          <version>${versioneye.plugin.version}</version>
-          <configuration>
-            <projectId>${versioneye.project.id}</projectId>
-          </configuration>
-        </plugin>
-        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>2.3</version>
@@ -270,6 +263,30 @@
           </sourceDirectories>
         </configuration>
       </plugin>
+
+      <plugin>
+        <artifactId>maven-acr-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>${app.mainClass}</mainClass>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib</classpathPrefix>
+            </manifest>
+          </archive>
+        </configuration>
+        <extensions>true</extensions>
+      </plugin>
+
+      <plugin>
+        <groupId>com.versioneye</groupId>
+        <artifactId>versioneye-maven-plugin</artifactId>
+        <version>${versioneye.plugin.version}</version>
+        <configuration>
+          <projectId>${versioneye.project.id}</projectId>
+        </configuration>
+      </plugin>
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
         <version>2.8.2</version>
@@ -293,10 +310,6 @@
       </plugin>
       <plugin>
         <artifactId>maven-help-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>com.versioneye</groupId>
-        <artifactId>versioneye-maven-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -393,6 +406,18 @@
           <artifactId>logback-classic</artifactId>
         </dependency>
       </dependencies>
+    </profile>
+
+    <profile>
+      <id>surefire-reports</id>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-report-plugin</artifactId>
+            <version>${surefire.version}</version>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
 
