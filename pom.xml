@@ -41,10 +41,10 @@
     <slf4j.version>1.7.25</slf4j.version>
     <spring.shell.version>1.2.0.RELEASE</spring.shell.version>
     <spring.statemachine.version>1.2.3.RELEASE</spring.statemachine.version>
-    <spring.version>4.3.7.RELEASE</spring.version>
+    <spring.version>4.3.8.RELEASE</spring.version>
     <surefire.reportFormat>plain</surefire.reportFormat>
     <surefire.useFile>false</surefire.useFile>
-    <surefire.version>2.19.1</surefire.version>
+    <surefire.version>2.20</surefire.version>
     <versioneye.project.id>57961d8c4fe918003eb31635</versioneye.project.id>
     <versioneye.plugin.version>3.11.2</versioneye.plugin.version>
   </properties>
