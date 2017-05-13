@@ -82,7 +82,7 @@ public class CdPlayerTest {
 	}
 
 	@Test
-  // @Ignore
+  @Ignore
 	public void testPlayWithCdLoaded() throws Exception {
 		listener.reset(4, 0, 0);
 		player.eject();

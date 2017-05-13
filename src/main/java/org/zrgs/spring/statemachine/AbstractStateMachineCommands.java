@@ -81,7 +81,9 @@ public class AbstractStateMachineCommands<S, E> implements CommandMarker {
 	public String variables() {
 		StringBuilder buf = new StringBuilder();
 		Set<Entry<Object, Object>> entrySet = stateMachine.getExtendedState().getVariables().entrySet();
+
 		Iterator<Entry<Object, Object>> iterator = entrySet.iterator();
+
 		if (entrySet.isEmpty()) {
 			while (iterator.hasNext()) {
 				Entry<Object, Object> e = iterator.next();
@@ -95,6 +97,7 @@ public class AbstractStateMachineCommands<S, E> implements CommandMarker {
 		} else {
 			buf.append("No variables");
 		}
+
 		return buf.toString();
 	}
 }
