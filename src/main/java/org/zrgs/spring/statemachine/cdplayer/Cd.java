@@ -15,13 +15,15 @@
  */
 package org.zrgs.spring.statemachine.cdplayer;
 
+import javax.annotation.Nonnull;
+
 @SuppressWarnings("WeakerAccess")
 public class Cd {
 
 	private final String name;
 	private final Track[] tracks;
 
-	public Cd(String name, Track[] tracks) {
+	public Cd(String name, @Nonnull Track... tracks) {
 		this.name = name;
 		this.tracks = tracks;
 	}
