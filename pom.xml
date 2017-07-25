@@ -50,8 +50,8 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <slf4j.version>1.7.25</slf4j.version>
     <spring.shell.version>1.2.0.RELEASE</spring.shell.version>
-    <spring.statemachine.version>1.2.5.RELEASE</spring.statemachine.version>
-    <spring.version>4.3.9.RELEASE</spring.version>
+    <spring.statemachine.version>1.2.6.RELEASE</spring.statemachine.version>
+    <spring.version>4.3.10.RELEASE</spring.version>
     <surefire.reportFormat>plain</surefire.reportFormat>
     <surefire.useFile>false</surefire.useFile>
     <surefire.version>2.20</surefire.version>
@@ -213,7 +213,7 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.2.0</version>
+        <version>1.2.2</version>
         <configuration>
           <targetClasses>
             <param>org.zrgs.spring.statemachine.cdplayer*</param>
