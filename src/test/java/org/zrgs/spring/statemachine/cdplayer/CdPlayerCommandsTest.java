@@ -1,25 +1,33 @@
 package org.zrgs.spring.statemachine.cdplayer;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author glick
  */
 @SuppressWarnings("WeakerAccess")
-// @RunWith(SpringJUnit4ClassRunner.class)
+@Ignore
+@RunWith(SpringJUnit4ClassRunner.class)
 public class CdPlayerCommandsTest
 {
   @Test
-  public void dummyTest() {}
+  public void dummyTest()
+  {
+  }
 
   CdPlayerCommands cdPlayerCommands;
 
   CdPlayer cdPlayer;
   Track track;
   Track[] tracks = new Track[1];
+
   Cd cd;
 
   @Before
@@ -31,31 +39,29 @@ public class CdPlayerCommandsTest
 
     track = new Track("Supreme Love", 2000);
     tracks[0] = track;
+
     cd = new Cd("A Love Supreme", tracks);
 
-    cdPlayerCommands = new CdPlayerCommands();
+    cdPlayerCommands = new CdPlayerCommands(cdPlayer, MusicLibrary.buildSampleLibrary());
   }
 
   @Test
-  public void lcdTest() throws Exception
-  {
+  public void lcdTest() {
     assertThat(cdPlayerCommands).isNotNull();
   }
 
   @Test
-  public void libraryTest() throws Exception
-  {
+  public void libraryTest() {
     cdPlayer = new CdPlayer();
   }
 
   @Test
-  public void load() throws Exception
-  {
+  public void load() {
     assertThat(cdPlayer).isNotNull();
 
     assertThat(cd).isNotNull();
 
-    // cdPlayer.load(cd);
+    cdPlayer.load(cd);
   }
 //
 //  @Test

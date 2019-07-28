@@ -35,11 +35,15 @@ public class CdPlayerCommands implements CommandMarker {
   @SuppressWarnings("unused")
   private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-	@Inject
 	private CdPlayer cdPlayer;
 
-	@Inject
 	private MusicLibrary musicLibrary;
+
+	@Inject
+	public CdPlayerCommands(CdPlayer cdPlayer, MusicLibrary musicLibrary) {
+	  this.cdPlayer = cdPlayer;
+	  this.musicLibrary = musicLibrary;
+  }
 
 	@CliCommand(value = "cd lcd", help = "Prints CD player lcd info")
 	public String lcd() {

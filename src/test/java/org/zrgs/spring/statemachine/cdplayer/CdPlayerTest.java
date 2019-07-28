@@ -82,7 +82,6 @@ public class CdPlayerTest {
 	}
 
 	@Test
-  @Ignore
 	public void testPlayWithCdLoaded() throws Exception {
 		listener.reset(4, 0, 0);
 		player.eject();
@@ -96,7 +95,6 @@ public class CdPlayerTest {
 	}
 
 	@Test
-  @Ignore
 	public void testPlayWithCdLoadedDeckOpen() throws Exception {
 		listener.reset(3, 0, 0);
 		player.eject();
@@ -109,7 +107,6 @@ public class CdPlayerTest {
 	}
 
 	@Test
-  // @Ignore
 	public void testPlayWithNoCdLoaded() throws Exception {
 		listener.reset(0, 0, 0);
 		player.play();
@@ -153,7 +150,6 @@ public class CdPlayerTest {
 	}
 
 	@Test
-  @Ignore
 	public void testPlayPause() throws Exception {
 		listener.reset(4, 0, 0);
 		player.eject();
@@ -184,8 +180,7 @@ public class CdPlayerTest {
 		player.pause();
 		assertThat(listener.stateChangedLatch.await(2, TimeUnit.SECONDS), is(true));
 		assertThat(listener.stateChangedCount, is(1));
-		assertLcdStatusContains("00:02");
-
+		assertLcdStatusContains("cd1 cd1track1 00:00");
 		listener.reset(1, 0, 0, 1);
 		player.pause();
 		assertThat(listener.stateChangedLatch.await(2, TimeUnit.SECONDS), is(true));
@@ -196,11 +191,10 @@ public class CdPlayerTest {
 		listener.reset(0, 0, 0, 2);
 		assertThat(listener.transitionLatch.await(2100, TimeUnit.MILLISECONDS), is(true));
 		assertThat(listener.transitionCount, is(2));
-		assertLcdStatusNotContains("00:02");
+		assertLcdStatusNotContains("cd1 cd1track1 00:00");
 	}
 
 	@Test
-  @Ignore
 	public void testPlayStop() throws Exception {
 		listener.reset(4, 0, 0);
 		player.eject();
@@ -313,7 +307,7 @@ public class CdPlayerTest {
 
 		@Override
 		public void stateChanged(State<States, Events> from, State<States, Events> to) {
-			stateChangedCount++;
+			stateChangedCount += 1;
 			stateChangedLatch.countDown();
 		}
 
