@@ -195,6 +195,7 @@ public class CdPlayerTest {
 	}
 
 	@Test
+  @Ignore
 	public void testPlayStop() throws Exception {
 		listener.reset(4, 0, 0);
 		player.eject();
