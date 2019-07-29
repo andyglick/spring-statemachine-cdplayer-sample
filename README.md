@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/andyglick/spring-statemachine-cdplayer-sample.svg?branch=master)](https://travis-ci.org/andyglick/spring-statemachine-cdplayer-sample)
 [![Coverage Status](https://coveralls.io/repos/github/andyglick/spring-statemachine-cdplayer-sample/badge.svg)](https://coveralls.io/github/andyglick/spring-statemachine-cdplayer-sample)
-[![DepShield Badge](https://depshield.sonatype.org/badges/andyglick/cucumber-spring-eclipselink/depshield.svg)](https://depshield.github.io)
+[![DepShield Badge](https://depshield.sonatype.org/badges/andyglick/spring-statemachine-cdplayer-sample/depshield.svg)](https://depshield.github.io)
 
 Spring Statemachine Sample - cdplayer
 =====================================
